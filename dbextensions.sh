@@ -4,7 +4,7 @@ set -e
 # Set up pg_cron
 echo "Setting up pg_cron..."
 cat <<EOT >> ${PGDATA}/postgresql.conf
-shared_preload_libraries='pg_cron'
+shared_preload_libraries='pg_cron, hll'
 cron.database_name='${POSTGRES_DB:-postgres}'
 EOT
 
